@@ -86,9 +86,8 @@ npm run preview
 ## 🌐 Live Demo
 
 **Portfolio:**
-https://my-portflio.vercel.app/
+[https://my-portflio.vercel.app/](https://shahzaib-portflio.vercel.app/)
 
-> Replace the URL above with your actual deployed portfolio URL if it is different.
 
 ## 📸 Projects
 
