@@ -158,24 +158,33 @@ function About() {
       </section>
 
       {/* Statistics */}
-      <section className="section-shell pt-10">
-        <StaggerGroup className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {stats.map((stat,index) => (
+      <section className="section-shell pt-10 sm:pt-14 lg:pt-16">
+        <StaggerGroup
+          className=" mx-auto grid w-full max-w-5xl grid-cols-2 justify-items-center gap-4 sm:gap-6 lg:grid-cols-4
+          ">
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={staggerChild}
               whileHover={{ y: -7 }}
-              className="glass-panel rounded-3xl p-8 "
-            >
-              <span className="text-gradient pt-10">
-                {/* Statistics Value */}
-                <span className="text-gradient text-5xl font-mono">
+              className="glass-panel flex w-full min-h-35 flex-col items-center justify-center rounded-2xl p-4 text-center sm:min-h-40 sm:rounded-3xl sm:p-6 lg:min-h-45 lg:p-8
+              ">
+
+              {/* Number */}
+              <span className="text-gradient">
+                <span
+                  className="font-mono  text-3xl font-semibold sm:text-4xl lg:text-5xl
+                  ">
                   {stat.to}
                   {stat.suffix}
                 </span>
               </span>
 
-              <p className="mt-5 text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              {/* Label */}
+              <p
+                className=" mt-3 text-center text-[9px] leading-4 tracking-[0.12em] uppercase text-muted-foreground sm:mt-4 sm:text-[10px] sm:tracking-[0.18em] lg:text-xs 
+                lg:tracking-[0.2em]
+                ">
                 {stat.label}
               </p>
             </motion.div>
