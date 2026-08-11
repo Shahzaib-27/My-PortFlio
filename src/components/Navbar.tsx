@@ -144,51 +144,52 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{
-              opacity: 0,
-              height: 0,
-            }}
-            animate={{
-              opacity: 1,
-              height: "auto",
-            }}
-            exit={{
-              opacity: 0,
-              height: 0,
-            }}
-            transition={{
-              duration: 0.4,
-              ease: easeSoft,
-            }}
-            className="glass-panel mx-6 overflow-hidden rounded-2xl md:hidden"
-          >
-            <div className="flex flex-col p-4">
-              {links.map((link) => {
-                const active = pathname === link.to;
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+                  
+          {open && (
+            <motion.nav
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.4,
+                ease: easeSoft,
+              }}
+              className="glass-panel mx-6 overflow-hidden rounded-2xl md:hidden"
+            >
+              <div className="flex flex-col p-2">
+                {links.map((link) => {
+                  const active = pathname === link.to;
 
-                return (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => handleNavClick(link.to)}
-                    className={`m-1 rounded-xl bg-gradient-accent px-5 py-4 text-sm font-bold ${
-                      active
-                        ? "text-white"
-                        : "text-primary-foreground"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+                  return (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => handleNavClick(link.to)}
+                      className={`m-2 rounded-full px-4 py-3 text-sm font-bold transition-all duration-200 ease-in-out ${
+                        active
+                          ? "bg-black text-white"
+                          : "bg-gradient-accent text-black"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </motion.nav>
+          )}
+        </AnimatePresence>
     </motion.header>
   );
 }
