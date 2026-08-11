@@ -28,23 +28,33 @@ export function Navbar() {
 
   // Detect page scroll
   useEffect(() => {
-    const Goback = scrollY.on("change", (value) => {
+    const unsubscribe = scrollY.on("change", (value) => {
       setScrolled(value > 24);
     });
 
-    return () => Goback();
-
+    return () => unsubscribe();
   }, [scrollY]);
 
-  // Close mobile menu when route changes
- useEffect(() => {
-  setOpen(false);
+  // Scroll to top whenever route changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}, [pathname]);
+  // Handle navigation click
+  const handleNavClick = (to: string) => {
+    setOpen(false);
+
+    // If clicking the page you're already on
+    if (pathname === to) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <motion.header
@@ -64,7 +74,8 @@ export function Navbar() {
         {/* Logo */}
         <Link
           to="/home"
-          className="rounded-full bg-gradient-accent px-5 py-2.5 text-sm font-bold text-primary-foreground"
+          onClick={() => handleNavClick("/home")}
+          className="rounded-full bg-gradient-accent px-5 py-2.5 text-sm font-bold text-black"
         >
           Shahzaib
         </Link>
@@ -84,6 +95,7 @@ export function Navbar() {
               <Link
                 key={link.to}
                 to={link.to}
+                onClick={() => handleNavClick(link.to)}
                 className={`relative rounded-full px-4 py-2 text-sm font-bold transition-colors ${
                   active
                     ? "text-white"
@@ -115,6 +127,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <Link
             to="/contact"
+            onClick={() => handleNavClick("/contact")}
             className="rounded-xl bg-gradient-accent px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:scale-110"
           >
             Let's talk
@@ -161,6 +174,7 @@ export function Navbar() {
                   <Link
                     key={link.to}
                     to={link.to}
+                    onClick={() => handleNavClick(link.to)}
                     className={`m-1 rounded-xl bg-gradient-accent px-5 py-4 text-sm font-bold ${
                       active
                         ? "text-white"

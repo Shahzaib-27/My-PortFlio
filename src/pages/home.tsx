@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <>
       {/*  HERO  */}
-      <section className="section-shell pt-10">
+      <section className="section-shell pt-28 ">
 
         {/* Projects Button */}
         <Reveal y={12}>

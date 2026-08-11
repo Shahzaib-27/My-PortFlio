@@ -79,7 +79,7 @@ function About() {
   return (
     <>
       {/* About Heading */}
-      <section className="section-shell">
+      <section className="section-shell ">
         <SectionHeading
           eyebrow="About"
           title="Building modern web experiences."
@@ -87,7 +87,7 @@ function About() {
         />
 
         {/* About Content */}
-        <div className="mt-16 grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="mt-5 grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           {/* Image */}
           <div
             ref={ref}
@@ -106,7 +106,7 @@ function About() {
                   duration: 0.6,
                   ease: easeSoft,
                 }}
-                className="glass-panel overflow-hidden rounded-4xl p-2">
+                className="glass-panel overflow-hidden rounded-4xl p-2 mt-5">
                 <img
                   src="/portrait.jpg"
                   alt="Portrait of Shahzaib Shahid"
@@ -123,13 +123,13 @@ function About() {
           </div>
 
           {/* About Text */}
-          <div className="space-y-6">
+          <div className="space-y-6 pt-25">
             {aboutContent.map((p, i) => (
               <Reveal
                 key={`${p}-${i}`}
                 delay={i * 0.01}
               >
-                <p className="text-base leading-relaxed text-muted-foreground">
+                <p className="text-base leading-relaxed text-muted-foreground ">
                   {p}
                 </p>
               </Reveal>
@@ -137,14 +137,16 @@ function About() {
 
             {/* Profile Information */}
             <Reveal delay={0.3}>
-              <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-border pt-8">
+              <dl className="mt-6 grid grid-cols-2 gap-6 border-t border-border glass-panel p-6
+              rounded-4xl
+              ">
                 {profileInfo.map(([key, value]) => (
                   <div key={key}>
-                    <dt className="font-mono text-[11px] tracking-[0.2em] uppercase text-primary">
+                    <dt className="font-mono text-[15px] tracking-[0.2em] uppercase text-primary ">
                       {key}
                     </dt>
 
-                    <dd className="mt-2 text-sm text-muted-foreground">
+                    <dd className="mt-2 text-sm text-muted-foreground ">
                       {value}
                     </dd>
                   </div>

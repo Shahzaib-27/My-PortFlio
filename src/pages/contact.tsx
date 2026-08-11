@@ -177,7 +177,7 @@ export default function Contact() {
   return (
     <>
       {/* MAIN CONTACT SECTION */}
-      <div className="mt-20 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] m-10 p-5 pt-5">
+      <div className="mt-10 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] m-2 p-2 pt-5">
 
         {/* CONTACT FORM*/}
         <Reveal delay={0.1}>
